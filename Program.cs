@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<VpprojectContext>(options =>
 {
     options.UseMySql("server=localhost;user=root;database=VPProject", Microsoft.EntityFrameworkCore.ServerVersion.Parse("10.4.28-mariadb"));
-});
+},ServiceLifetime.Scoped);
 
 
 // Add services to the container.
@@ -47,6 +47,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Auth}/{action=Index}/{id?}");
 
 app.Run();

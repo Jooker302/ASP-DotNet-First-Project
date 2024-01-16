@@ -136,3 +136,4 @@
 /home/arrow/Projects/Dotnet/VPProject/obj/Debug/net8.0/VPProject.pdb
 /home/arrow/Projects/Dotnet/VPProject/obj/Debug/net8.0/VPProject.genruntimeconfig.cache
 /home/arrow/Projects/Dotnet/VPProject/obj/Debug/net8.0/ref/VPProject.dll
+/home/arrow/Projects/Dotnet/VPProject/obj/Debug/net8.0/VPProject.sourcelink.json

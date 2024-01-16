@@ -1,0 +1,139 @@
+@{
+
+    Layout = null;
+    }
+
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Registration Page</title>
+        <style>
+            body {
+                font-family: 'Arial', sans-serif;
+                background-color: #2ecc71;
+                margin: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+            }
+
+            .register-container {
+                background-color: #ffffff;
+                padding: 40px;
+                border-radius: 10px;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+                width: 350px;
+                text-align: center;
+            }
+
+            .register-container h2 {
+                color: #2c3e50;
+                margin-bottom: 20px;
+            }
+
+            .register-form {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .form-group {
+                text-align: left;
+            }
+
+            .form-group label {
+                display: block;
+                font-weight: bold;
+                margin-bottom: 8px;
+                color: #2c3e50;
+            }
+
+            .form-group input {
+                width: 100%;
+                padding: 12px;
+                border: none;
+                border-radius: 6px;
+                background-color: #ecf0f1;
+                color: #34495e;
+            }
+
+            .form-group button {
+                background-color: #2ecc71;
+                color: #ffffff;
+                padding: 12px;
+                border: none;
+                border-radius: 6px;
+                cursor: pointer;
+                transition: background 0.3s ease;
+            }
+
+            .form-group button:hover {
+                background-color: #27ae60;
+            }
+
+            .radio-group {
+                display: flex;
+                gap: 10px;
+            }
+
+            .radio-group label {
+                margin-right: 10px;
+                color: #2c3e50;
+            }
+
+            .login-link {
+                margin-top: 20px;
+                color: #2c3e50;
+                text-decoration: none;
+            }
+
+            .login-link:hover {
+                color: #27ae60;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="register-container">
+            <h2>Register</h2>
+            <form class="register-form" action="/Auth/Register" method="post">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group radio-group">
+                    <label>Gender:</label>
+                    <label><input type="radio" name="gender" value="Male"> Male</label>
+                    <label><input type="radio" name="gender" value="Female"> Female</label>
+                </div>
+                <div class="form-group">
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" name="age" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password:</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Register</button>
+                </div>
+            </form>
+            <a class="login-link" asp-area="" asp-controller="Auth" asp-action="Index">Already have an account? Login here.</a>
+        </div>
+    </body>
+
+    </html>
+
