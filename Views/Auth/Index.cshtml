@@ -1,5 +1,12 @@
 @{
     Layout = null;
+}
+@if (Context.Session.GetString("UserName") != null)
+    {
+        <script>
+            window.location.href = "/Home";
+        </script>
+    }
 
     <!DOCTYPE html>
     <html lang="en">
@@ -106,4 +113,4 @@
 
 
 
-}
+

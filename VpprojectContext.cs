@@ -17,7 +17,8 @@ public partial class VpprojectContext : DbContext
     {
     }
 
-    public DbSet<User> Users { get; set; } // Add this line
+    public DbSet<User> Users { get; set; } 
+    public DbSet<Report> Reports { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

@@ -28,27 +28,28 @@ public class AuthController : Controller
     [ValidateAntiForgeryToken]
      public IActionResult Login(string email, string password)
     {
-        // Use a using statement to ensure proper disposal of the context
         using (var context = new VpprojectContext())
         {
-            // Check if the email and password match a user in the database
             var user = context.Users.SingleOrDefault(u => u.Email == email && u.Password == password);
 
             if (user != null)
             {
-                // Redirect based on user type
+              
                 if (user.Type == "Admin")
                 {
+                    // ViewData["UserName"] = user.Name;
+                    HttpContext.Session.SetString("UserName", user.Name);
+                   HttpContext.Session.SetString("UserId", user.Id.ToString());
                     return RedirectToAction("Index", "Admin");
                 }
                 else if (user.Type == "Patient")
                 {
+                     HttpContext.Session.SetString("UserName", user.Name);
+                     HttpContext.Session.SetString("UserId", user.Id.ToString());
                     return RedirectToAction("Index", "Home");
                 }
             }
         }
-
-        // If no matching user found, redirect to login page or show an error message
         return RedirectToAction("Index");
     }
 
@@ -85,6 +86,13 @@ public class AuthController : Controller
     public IActionResult Error()
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+    }
+
+    public IActionResult Logout()
+    {
+        HttpContext.Session.Clear();
+
+        return RedirectToAction("Index", "Auth");
     }
 
      protected override void Dispose(bool disposing)

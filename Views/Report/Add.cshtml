@@ -1,0 +1,22 @@
+@model VPProject.Models.Report
+
+@{
+    ViewData["Title"] = "Store Report";
+}
+
+<div class="container mt-5">
+    <h2>Add Report</h2>
+    <form method="post" action="/Report/Add">
+        <div class="form-group">
+            <label class="form-label" for="issue">Issue:</label>
+            <input type="text" class="form-control" id="Issue" name="Issue" placeholder="Enter your issue" required>
+        </div>
+        <!-- Hidden field for UserId from session -->
+        <input type="hidden" name="UserId" value=`@Context.Session.GetString("UserId")`>
+
+        <!-- Hidden field for IssueDate set to the current date and time -->
+        <input type="hidden" name="IssueDate" value="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss")">
+
+        <button type="submit" style="margin: 10px;" class="btn btn-primary">Submit</button>
+    </form>
+</div>
