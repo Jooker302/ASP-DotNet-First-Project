@@ -1,0 +1,36 @@
+@model List<User>
+
+@{
+    ViewData["Title"] = "User Index";
+}
+
+<div class="container mt-5">
+    <h2>Users List</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Gender</th>
+                <th>Age</th>
+                @* <th>Suggestion Date</th> *@
+                <!-- Add other columns as needed -->
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.Id</td>
+                    <td>@user.Name</td>
+                    <td>@user.Email</td>
+                    <td>@user.Gender</td>
+                    <td>@user.Age</td>
+                    @* <td>@user.SuggestionDate</td> *@
+                    <!-- Add other columns as needed -->
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

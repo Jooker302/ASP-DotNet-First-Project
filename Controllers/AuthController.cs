@@ -38,12 +38,14 @@ public class AuthController : Controller
                 if (user.Type == "Admin")
                 {
                     // ViewData["UserName"] = user.Name;
+                    HttpContext.Session.SetString("UserType", user.Type);
                     HttpContext.Session.SetString("UserName", user.Name);
                    HttpContext.Session.SetString("UserId", user.Id.ToString());
-                    return RedirectToAction("Index", "Admin");
+                    return RedirectToAction("Index", "Home");
                 }
                 else if (user.Type == "Patient")
                 {
+                    HttpContext.Session.SetString("UserType", user.Type);
                      HttpContext.Session.SetString("UserName", user.Name);
                      HttpContext.Session.SetString("UserId", user.Id.ToString());
                     return RedirectToAction("Index", "Home");

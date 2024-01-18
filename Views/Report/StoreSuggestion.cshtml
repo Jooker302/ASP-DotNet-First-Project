@@ -1,0 +1,16 @@
+@{
+    ViewData["Title"] = "Store Suggestion";
+}
+
+<div class="container mt-5">
+    <h2>Add Suggestion</h2>
+    <form method="post" action="/Report/StoreSuggestion">
+        <div class="form-group">
+            <label class="form-label" for="issue">Suggestion:</label>
+            <input type="text" class="form-control" id="Suggestion" name="suggestion" placeholder="Enter your suggestion" required>
+        </div>
+        <input type="hidden" name="reportId" value='@ViewData["ReportId"]'>
+        @* <input type="hidden" name="SuggestionDate" value="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss")"> *@
+        <button type="submit" style="margin: 10px;" class="btn btn-primary">Submit</button>
+    </form>
+</div>

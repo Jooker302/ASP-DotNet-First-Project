@@ -1,0 +1,40 @@
+@model List<Report>
+
+@{
+    ViewData["Title"] = "Reports Suggestions";
+}
+
+<div class="container mt-5">
+    <h2>Reports List</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>UserId</th>
+                <th>Issue</th>
+                <th>Issue Date</th>
+                <th>Suggestion</th>
+                <th>Suggestion Date</th>
+                <th>Action</th>
+                <!-- Add other columns as needed -->
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var report in Model)
+            {
+                <tr>
+                    <td>@report.Id</td>
+                    <td>@report.UserId</td>
+                    <td>@report.Issue</td>
+                    <td>@report.IssueDate</td>
+                    <td>@report.Suggestion</td>
+                    <td>@report.SuggestionDate</td>
+                    <td>
+                        <a href="@Url.Action("StoreSuggestion", "Report", new { reportId = report.Id })">Add Suggestion</a>
+                    </td>
+                    <!-- Add other columns as needed -->
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

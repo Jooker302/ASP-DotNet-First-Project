@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ThzPDdTHzzDoxXgdhX9CQUlo+YcLka/HIeA8cn1ZFc1uFzpdbYnfytKsFgqjGznluB07DuIskZDwb/8DO0awZg==",
+  "dgSpecHash": "hY/AybRuwDDsHPnqRZqWYFirxWCIu0Rf4EXPSM+axNUEaitWAEH8IvU+YQ7trdRgMzoFTc58E9ctTeHk9v5LqA==",
   "success": true,
   "projectFilePath": "/home/arrow/Projects/Dotnet/VPProject/VPProject.csproj",
   "expectedPackageFiles": [
@@ -47,6 +47,7 @@
     "/home/arrow/.nuget/packages/microsoft.win32.systemevents/6.0.0/microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "/home/arrow/.nuget/packages/mono.texttemplating/2.2.1/mono.texttemplating.2.2.1.nupkg.sha512",
     "/home/arrow/.nuget/packages/mysqlconnector/2.3.1/mysqlconnector.2.3.1.nupkg.sha512",
+    "/home/arrow/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512",
     "/home/arrow/.nuget/packages/pomelo.entityframeworkcore.mysql/8.0.0-beta.2/pomelo.entityframeworkcore.mysql.8.0.0-beta.2.nupkg.sha512",
     "/home/arrow/.nuget/packages/system.codedom/4.4.0/system.codedom.4.4.0.nupkg.sha512",
     "/home/arrow/.nuget/packages/system.collections.immutable/6.0.0/system.collections.immutable.6.0.0.nupkg.sha512",

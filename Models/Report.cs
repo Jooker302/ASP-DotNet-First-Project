@@ -17,8 +17,8 @@ namespace VPProject.Models
         [DataType(DataType.Date)]
         public DateTime IssueDate { get; set; }
 
-        [Required(ErrorMessage = "Suggestion is required")]
-        public string? Suggestion { get; set; }
+        [DataType(DataType.Text)] // Remove [Required] if Suggestion is optional
+        public string? Suggestion { get; set; } // Use nullable string
 
         [DataType(DataType.Date)]
         public DateTime? SuggestionDate { get; set; }
