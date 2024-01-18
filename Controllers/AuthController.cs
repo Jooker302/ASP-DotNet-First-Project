@@ -26,23 +26,27 @@ public class AuthController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public IActionResult Login(string email, string password)
+     public IActionResult Login(string email, string password)
     {
-        // Check if the email and password match a user in the database
-        var user = _dbContext.Users.SingleOrDefault(u => u.Email == email && u.Password == password);
+        // Use a using statement to ensure proper disposal of the context
+        using (var context = new VpprojectContext())
+        {
+            // Check if the email and password match a user in the database
+            var user = context.Users.SingleOrDefault(u => u.Email == email && u.Password == password);
 
-        // if (user != null)
-        // {
-        //     // Redirect based on user type
-        //     if (user.Type == "Admin")
-        //     {
-        //         return RedirectToAction("Index", "Admin");
-        //     }
-        //     else if (user.Type == "Patient")
-        //     {
-        //         return RedirectToAction("Index", "Home");
-        //     }
-        // }
+            if (user != null)
+            {
+                // Redirect based on user type
+                if (user.Type == "Admin")
+                {
+                    return RedirectToAction("Index", "Admin");
+                }
+                else if (user.Type == "Patient")
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+        }
 
         // If no matching user found, redirect to login page or show an error message
         return RedirectToAction("Index");
@@ -81,5 +85,14 @@ public class AuthController : Controller
     public IActionResult Error()
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+    }
+
+     protected override void Dispose(bool disposing)
+    {
+        if (disposing)
+        {
+            _dbContext.Dispose();
+        }
+        base.Dispose(disposing);
     }
 }
